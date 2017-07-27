@@ -6,23 +6,34 @@ class TowersOfHanoi
     @towers = [[5, 3, 1], [], []]
   end
 
-  def get_block(num)
-    blocks = [@block1, @block2, @block3]
-    idx = num - 1
-    blocks[idx]
+  def run
+    while (!self.has_won?)
+      display
+      puts "What block would you like to move from?"
+      from = gets.chomp.to_i - 1
+      puts "What block would you like to move to?"
+      to = gets.chomp.to_i - 1
+      if valid_move?(from, to)
+        move(from, to)
+        display
+      else
+        puts "That is not a valid move"
+      end
+    end
+    puts "congrats! You won the game!"
   end
 
   def move(from, to)
-
-
+      @towers[to] << @towers[from].delete(@towers[from].last)
+      #@towers[to] << @towers[from].pop
   end
 
   def valid_move?(from, to)
-    return false if [from, to].any? { |num| num > 3 && num < 1 }
-    return true if get_block(to).empty?
-    return false if get_block(from).empty?
+    return false if [from, to].any? { |num| num > 2 || num < 0 }
+    return false if @towers[from].empty?
+    return true if @towers[to].empty?
 
-    if get_block(to).first < get_block(from).first
+    if @towers[to].first < @towers[from].first
       return false
     else
       return true
@@ -57,7 +68,7 @@ class TowersOfHanoi
 
 
   def has_won?
-    @block1.empty? && (@block2.empty? || @block3.empty?)
+    @towers[0].empty? && (@towers[1].empty? || @towers[2].empty?)
   end
 
 
@@ -82,4 +93,4 @@ end
 
 
 game = TowersOfHanoi.new
-game.display
+game.run
