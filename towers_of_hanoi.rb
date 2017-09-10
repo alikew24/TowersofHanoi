@@ -8,6 +8,7 @@ class TowersOfHanoi
 
   def run
     while (!self.has_won?)
+      system("clear")
       display
       puts "What block would you like to move from?"
       from = gets.chomp.to_i - 1
