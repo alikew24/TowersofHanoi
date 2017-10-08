@@ -5,7 +5,7 @@ Play the game Towers of Hanoi! This game uses Ruby and is played in the console.
 ## Instructions
 
 1. Install ruby if you do not already have it.
-2. Download the [zip file](https://github.com/RonKew28/Chess/archive/master.zip)
+2. Download the [zip file](https://github.com/alikew24/TowersofHanoi/archive/master.zip)
 3. Unzip the zip file. In the terminal, navigate to the TowersofHanoi-master directory.
 4. Type 'bundle install' in the console.
 5. Type 'ruby towers_of_hanoi.rb' to start the game!
